@@ -88,3 +88,20 @@
     height: 100%;
     width: 100%;
 }
+
+.star-review {
+    display: flex;
+    justify-content: center;
+}
+
+.star-box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.review-text {
+    width: 500px;
+    height: 500px;
+}
