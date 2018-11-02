@@ -105,3 +105,35 @@
     width: 500px;
     height: 500px;
 }
+
+.r-image-container {
+    height: 500px;
+    align-items: normal !important;
+}
+
+.restaurant-info {
+    height: 300px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.popular-dishes {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.popular-dish-picture {
+    height: 100%;
+    width: 100px;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.list-layout{
+    display: flex; 
+    border: 1px solid black;
+    margin: 10px;
+    justify-content: left;
+    align-items: left; 
+}
