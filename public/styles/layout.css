@@ -1,0 +1,48 @@
+.header-container {
+    height: 150px;
+}
+
+.app-header {
+    background-color: #B00020;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.app-title {
+    color: white;
+    font-size: 50px;
+}
+
+.search-container {
+    margin-top: 20px
+}
+
+.search-bar {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #B00020;
+  width: 100%;
+  margin-left: : 25%;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  width: 100px;
+  margin: 10px;
+ 
+  /*text-align: cente;
+  line-height: 75px;
+  font-size: 30px;
+  */
+}
