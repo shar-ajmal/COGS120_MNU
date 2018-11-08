@@ -32,7 +32,9 @@ function getSubstringItems(array, substring) {
 function createDropDownItem(name) {
     var dropdownItemContainer = document.createElement('div');
     dropdownItemContainer.classList.add('dropdown-item-container');
-
+    dropdownItemContainer.addEventListener('click', function(e) {
+        window.location.href = 'restaurant.html';
+    })
     var dropdownInfoContainer = document.createElement('div')
     dropdownInfoContainer.classList.add('dropdown-info-container');
 
