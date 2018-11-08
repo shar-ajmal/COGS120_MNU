@@ -35,7 +35,7 @@
 
 .flex-container > div {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center; 
   width: 100%;
   margin: 10px;
@@ -138,6 +138,32 @@
     align-items: left; 
 }
 
+.dropdown-item-container {
+    width: 50% !important;
+    height: 75px;
+    border: 1px solid black;
+    padding: 10px;
+    background: white;
+}
+
+.dropdown-info-container {
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.dropdown-pic {
+    width: 15%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.dropdown-name {
+    width: 50%;
+    border: 1px solid black;
+}
 .review{
   justify-content: center;
   text-align: center;
