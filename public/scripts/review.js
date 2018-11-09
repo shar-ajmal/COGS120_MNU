@@ -33,10 +33,8 @@ $(document).ready(function(){
 		$('#name').val(''); 
 		$('#date').val('dd/mm/yyyy'); 
 		$('#bodyText').val(''); 
-
+		window.location.href = "eggplant.html"
 	}); 
-
-
 }); 
 
 
