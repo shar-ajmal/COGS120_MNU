@@ -193,6 +193,12 @@ float:left;
 margin-left: 1%; 
 }
 
+.home {
+  background-color: #B00020; 
+      color: black;
+      line-height: 50px;
+      
+    }
 
 .clear{
   clear:both;
