@@ -1,29 +1,42 @@
-function render(data){
-	var html = "<div class = 'commentBox'> <div class= 'leftPanelImg'><img src='https://placeholit.imgix.net/~text?w=100&h=100' /></div><div class='rightPanel'><span>"+data.name+"</span><div class='date'>"+data.date+"</div><p>"+data.commentText+"</p></div><div class='clear'></div></div>";
-	$('container').append(html);
+function render(data){ 
+	var html = "<div class='commentBox'><div class='leftPanelImg'><img src='https://via.placeholder.com/100x100' /> </div><div class='rightPanel'><span>"+data.name+"</span><div class= 'date'>"+data.date+" </div><p>"+data.body+ "<br /><br /></p></div> <div class='clear'> </div></div>";
+	$('#container').append(html); 
 }
 
-$(document).ready(function(){
-	var comment = [
-		{"name": "Faraz Shaikh", "date": "10 Apr, 2016", "body": "this is so cool 1"}
-	];
+$(document).ready(function(){ 
 
+	var comment = [];
 
-		for(var i = 0; comment.length; i++){
-			render(comment[i]); 
-		}
+	if (!localStorage.commentData){ 
+		localStorage.commentData = []; 
+	}else{ 
+		comment = JSON.parse(localStorage.commentData); 
+	}
 
-	$('#addCommnet').click(function(){
-		var addObj = {
+		//{"name": " Faraz Shaikh ", "date":"11/30/2020", "body": "This is a test"}
+
+	for(var i=0;i<comment.length; i++){
+    	render(comment[i]); 
+	}
+
+	$('#addComment').click(function(){ 
+		var addObj = { 
 			"name": $('#name').val(), 
 			"date": $('#date').val(), 
-			"body": $('#commentText').val()
-
-		};
-		commnet.push(addObj); 
+			"body": $('#bodyText').val()
+		}; 
+		console.log(addObj); 
+		comment.push(addObj);
+		localStorage.commentData = JSON.stringify(comment);
 		render(addObj); 
-		$('name').val('');
-		$('#date').val('dd/mm/yyyy');
-		$('#commentText').val('');
-	});
-});
+
+		$('#name').val(''); 
+		$('#date').val('dd/mm/yyyy'); 
+		$('#bodyText').val(''); 
+
+	}); 
+
+
+}); 
+
+
