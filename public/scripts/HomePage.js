@@ -22,7 +22,23 @@ var itemArray = [
     'Biryani',
 ];
 
-var mainArray = restaurantArray;
+var restaurantJSONArray = [
+    {'Name': 'Spicy City', 'Address': 'Convoy St', 'Price': '$', 'Menu': ['Spicy Garlic Eggplant']},
+    {'Name' : 'Vallartas', 'Address': 'Balboa Ave', 'Price': '$', 'Menu': ['Carne Asada Fries']},
+    {'Name': 'Dominos', 'Address' : 'La Jolla Village Drive', 'Price': '$', 'Menu' : ['Pizza']},
+    {'Name' : 'Biryani Palace', 'Address': 'Mira Mesa', 'Price': '$', 'Menu' : ['Goat Biryani']},
+    {'Name' : 'Ming Palace', 'Address' : '12th Street', 'Price': '$', 'Menu' : ['Orange Chicken']}
+]
+
+var itemJSONArray = [
+    {'Name': 'Spicy Garlic Eggplant', 'Description': 'This dish is sweet eggplant covered in Szechuan Sauce', 'Content': ['Nuts'], 'Rating': 5},
+    {'Name': 'Carne Asada Fries', 'Description': 'Fries covered in Carne Asada, cheese, and guacamole.', 'Content': ['Meat', 'Dairy'], 'Rating': 4},
+    {'Name': 'Pizza', 'Description': 'Flavorful Pizza covered in cheese and our secret sauce.', 'Content': ['Dairy'], 'Rating': 3},
+    {'Name': 'Goat Biryani', 'Description': 'Spiced Indian Rice Dish with goat meat', 'Content': ['Meat'], 'Rating': 4},
+    {'Name': 'Orange Chicken', 'Description': 'Flavorlful and sweet chicken glazed in our orange sauce.', 'Content': ['Meat'], 'Rating': 5},
+]
+
+var mainArray = restaurantJSONArray;
 var searchFilterValue = 'restaurants'
 var searchBar = document.getElementById('search-bar');
 var dropDownList = document.getElementById('restaurant-dropdown-list');
@@ -35,12 +51,12 @@ searchFilter.addEventListener('click', toggleFilter);
 function toggleFilter(e) {
     if (searchFilter.innerText === 'Search Menu Items') {
         searchFilter.innerText = 'Search Restaurants';
-        mainArray = itemArray;
+        mainArray = itemJSONArray;
         searchFilterValue = 'items'
     }
     else {
         searchFilter.innerText = 'Search Menu Items'
-        mainArray = restaurantArray;
+        mainArray = restaurantJSONArray;
         searchFilterValue = 'restaurants'
     }
     displayDropDown();
@@ -49,31 +65,28 @@ function toggleFilter(e) {
 function getSubstringItems(array, substring) {
     substringItemList = []
 
-    array.forEach(function(name) {
-        var lowerName = name.toLowerCase();
+    array.forEach(function(jsonObject) {
+        var lowerName = jsonObject.Name.toLowerCase();
         if (lowerName.includes(substring)) {
-            substringItemList.push(name);
+            substringItemList.push(jsonObject);
         }
     });
     
     return substringItemList;
 }
 
-function createDropDownItem(name) {
+function createDropDownItem(jsonObject) {
     var redirectLink = ''
-    if (name.toLowerCase() === 'spicy sity'){
+
+    if (searchFilterValue === 'restaurants'){
         redirectLink = 'restaurant.html'
-    }
-    else if (name.toLowerCase() === 'spicy garlic eggplant') {
-        redirectLink = 'eggplant.html';
-    }
-    else if (searchFilterValue === 'restaurants'){
-        redirectLink = 'restaurant.html'
+
     }  
     else {
         redirectLink = 'menu_dish.html'
     }
 
+    localStorage.setItem('objectToPass', jsonObject);
     var dropdownItemContainer = document.createElement('div');
     dropdownItemContainer.classList.add('dropdown-item-container');
     dropdownItemContainer.addEventListener('click', function(e) {
@@ -87,7 +100,7 @@ function createDropDownItem(name) {
 
     var dropdownName = document.createElement('div')
     dropdownName.classList.add('dropdown-name');
-    dropdownName.innerText = name
+    dropdownName.innerText = jsonObject.Name;
     
     dropdownInfoContainer.appendChild(dropdownPic);
     dropdownInfoContainer.appendChild(dropdownName);
@@ -108,8 +121,8 @@ function displayDropDown(e) {
     if (prefixItems.length == 0) {
         dropDownList.innerHTML = ('<h1>No Restaurants Found</h1>');
     }
-    prefixItems.forEach(function(restaurant) {
-        var dropdownItem = createDropDownItem(restaurant)
+    prefixItems.forEach(function(jsonObject) {
+        var dropdownItem = createDropDownItem(jsonObject)
         dropDownList.append(dropdownItem);
     });
 }
