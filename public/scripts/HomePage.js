@@ -44,6 +44,16 @@ var searchBar = document.getElementById('search-bar');
 var dropDownList = document.getElementById('restaurant-dropdown-list');
 var placeHolderDropdown = document.getElementById('placeholder-dropdown');
 var searchFilter = document.getElementById('restuarant-item-filter');
+var loginButton = document.getElementById('login-button');
+
+var login = JSON.parse(localStorage.getItem('login'))
+
+if (login) {
+    loginButton.innerHTML = 'Sarah'
+}
+else {
+    loginButton.innerHTML = 'LOGIN'
+}
 
 searchBar.addEventListener('keyup', displayDropDown);
 //searchFilter.addEventListener('click', toggleFilter);
