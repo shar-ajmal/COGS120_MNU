@@ -75,6 +75,22 @@ function getSubstringItems(array, substring) {
     return substringItemList;
 }
 
+function searchKey(key, array) {
+    console.log(key)
+    console.log(array)
+    var returnIndex = -1
+    array.forEach(function(jsonObject, index) {
+        console.log(index)
+        console.log(key)
+        console.log(jsonObject.Name)
+        if (jsonObject.Name == key) {
+            returnIndex = index;
+        }
+    });
+    
+    return returnIndex;
+}
+
 function createDropDownItem(jsonObject) {
     var redirectLink = ''
 
@@ -86,11 +102,13 @@ function createDropDownItem(jsonObject) {
         redirectLink = 'menu_dish.html'
     }
 
-    localStorage.setItem('objectToPass', jsonObject);
     var dropdownItemContainer = document.createElement('div');
     dropdownItemContainer.classList.add('dropdown-item-container');
     dropdownItemContainer.addEventListener('click', function(e) {
         window.location.href = redirectLink;
+        var arrayIndex = searchKey(jsonObject.Name, mainArray)
+        console.log(arrayIndex);
+        localStorage.setItem('objectToPass', JSON.stringify(mainArray[arrayIndex]))
     })
     var dropdownInfoContainer = document.createElement('div')
     dropdownInfoContainer.classList.add('dropdown-info-container');
