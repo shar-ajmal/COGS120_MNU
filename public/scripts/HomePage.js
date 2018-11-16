@@ -46,7 +46,12 @@ var placeHolderDropdown = document.getElementById('placeholder-dropdown');
 var searchFilter = document.getElementById('restuarant-item-filter');
 
 searchBar.addEventListener('keyup', displayDropDown);
-searchFilter.addEventListener('click', toggleFilter);
+//searchFilter.addEventListener('click', toggleFilter);
+
+localStorage.setItem('itemArray', JSON.stringify(itemJSONArray))
+localStorage.setItem('restaurantArray', JSON.stringify(restaurantJSONArray));
+
+//console.log(JSON.parse(localStorage.getItem('itemArray')));
 
 function toggleFilter(e) {
     if (searchFilter.innerText === 'Search Menu Items') {

@@ -131,7 +131,7 @@
 }
 
 .list-layout{
-    display: flex; 
+    display: block; 
     border: 1px solid black;
     margin: 10px;
     justify-content: left;
