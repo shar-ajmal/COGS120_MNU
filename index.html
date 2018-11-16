@@ -3,6 +3,7 @@
     <head>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link href="public/styles/layout.css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <div class="container-fullwidth header-container">
@@ -15,8 +16,18 @@
                 <div class="col-10">
                     <input class="search-bar" id="search-bar" placeholder="Search Restuarants..."/>
                 </div>
+                <!--
                 <div class="col-2">
                     <button class="restuarant-item-filter" id="restuarant-item-filter">Search Menu Items</button>
+                </div>
+            -->
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                          <input type="checkbox" name="restaurant"> Search Restaurants <br><br>
+                          <input type="checkbox" name="Menu" > Search Menu Items <br>
+                        
+                    </div>
                 </div>
             </div>
         </div>
