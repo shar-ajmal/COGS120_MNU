@@ -22,6 +22,16 @@ var itemArray = [
     'Biryani',
 ];
 
+var restaurantsNearYou = [
+    {'Name' : 'Vallartas', 'Address': 'Balboa Ave', 'Price': '$', 'Menu': ['Carne Asada Fries']},
+    {'Name': 'Dominos', 'Address' : 'La Jolla Village Drive', 'Price': '$', 'Menu' : ['Pizza']}
+]
+
+var itemsNearYou = [
+    {'Name': 'Carne Asada Fries', 'Description': 'Fries covered in Carne Asada, cheese, and guacamole.', 'Content': ['Meat', 'Dairy'], 'Rating': 4},
+    {'Name': 'Pizza', 'Description': 'Flavorful Pizza covered in cheese and our secret sauce.', 'Content': ['Dairy'], 'Rating': 3}
+]
+
 var restaurantJSONArray = [
     {'Name': 'Spicy City', 'Address': 'Convoy St', 'Price': '$', 'Menu': ['Spicy Garlic Eggplant']},
     {'Name' : 'Vallartas', 'Address': 'Balboa Ave', 'Price': '$', 'Menu': ['Carne Asada Fries']},
@@ -43,10 +53,15 @@ var searchFilterValue = 'restaurants'
 var searchBar = document.getElementById('search-bar');
 var dropDownList = document.getElementById('restaurant-dropdown-list');
 var placeHolderDropdown = document.getElementById('placeholder-dropdown');
-var searchFilter = document.getElementById('restuarant-item-filter');
+var searchFilter = document.getElementById('search-filter-button');
+var searchFilterRestaurant = document.getElementById('search-filter-restaurant')
+var searchFilterFood = document.getElementById('search-filter-food')
 var loginButton = document.getElementById('login-button');
+var searchHeaderMessage = document.getElementById('search-header-message');
 
 var login = JSON.parse(localStorage.getItem('login'))
+
+displayDropDown();
 
 if (login) {
     loginButton.innerHTML = 'Sarah'
@@ -56,25 +71,29 @@ else {
 }
 
 searchBar.addEventListener('keyup', displayDropDown);
-//searchFilter.addEventListener('click', toggleFilter);
+
+searchFilterRestaurant.addEventListener('click', function() {toggleFilter('Restaurants', restaurantJSONArray, 'restaurants')})
+searchFilterFood.addEventListener('click', function() {toggleFilter('Food Items', itemJSONArray, 'food')})
 
 localStorage.setItem('itemArray', JSON.stringify(itemJSONArray))
 localStorage.setItem('restaurantArray', JSON.stringify(restaurantJSONArray));
 
-//console.log(JSON.parse(localStorage.getItem('itemArray')));
+function toggleFilter(newText, newArray, newSearchFilterValue) {
 
-function toggleFilter(e) {
-    if (searchFilter.innerText === 'Search Menu Items') {
-        searchFilter.innerText = 'Search Restaurants';
-        mainArray = itemJSONArray;
-        searchFilterValue = 'items'
+    console.log("We're toggling" + newText);
+    console.log(newArray)
+    searchFilter.innerText = newText;
+    mainArray = newArray;
+    searchFilterValue = newSearchFilterValue;
+    displayDropDown();
+}
+function updateDropDown(e) {
+    if (searchFilterValue === 'restaurants') {
+        mainArray = restaurantJSONArray;
     }
     else {
-        searchFilter.innerText = 'Search Menu Items'
-        mainArray = restaurantJSONArray;
-        searchFilterValue = 'restaurants'
+        mainArray = itemJSONArray;
     }
-    displayDropDown();
 }
 
 function getSubstringItems(array, substring) {
@@ -145,17 +164,28 @@ function createDropDownItem(jsonObject) {
 function displayDropDown(e) {
     inputText = searchBar.value;
     dropDownList.innerHTML = '';
-    console.log(placeHolderDropdown)
+    console.log(inputText);
     if (inputText == '') {
-        dropDownList.innerHTML = placeHolderDropdown.innerHTML;
-        return;
+        if(searchFilterValue === 'restaurants') {
+            mainArray = restaurantsNearYou;
+        }
+        else {
+            mainArray = itemsNearYou;
+        }
+        searchHeaderMessage.innerHTML = searchFilterValue.toUpperCase() + ' Near You';
     }
-    var prefixItems = getSubstringItems(mainArray, inputText)
+    else {
+        updateDropDown();
+        searchHeaderMessage.innerHTML = 'Searching ' + searchFilterValue.toUpperCase();
+    }
+    console.log(mainArray)
+    var prefixItems = getSubstringItems(mainArray, inputText);
     if (prefixItems.length == 0) {
-        dropDownList.innerHTML = ('<h1>No Restaurants Found</h1>');
+        dropDownList.innerHTML = '';
+        searchHeaderMessage.innerHTML = 'No ' + searchFilterValue.toUpperCase() + ' Found';
     }
     prefixItems.forEach(function(jsonObject) {
-        var dropdownItem = createDropDownItem(jsonObject)
+        var dropdownItem = createDropDownItem(jsonObject);
         dropDownList.append(dropdownItem);
     });
 }
