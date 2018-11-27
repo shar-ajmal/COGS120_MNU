@@ -5,18 +5,14 @@ function render(data){
 
 $(document).ready(function(){ 
 
-	var comment = [];
+	var itemComments = [];
+	var item = JSON.parse(localStorage.getItem('itemObject'));
 
-	if (!localStorage.commentData){ 
-		localStorage.commentData = []; 
+	
+	if (!localStorage.getItem(item.Name + "Comments")){ 
+		localStorage.setItem(item.Name + "Comments", JSON.stringify([]))
 	}else{ 
-		comment = JSON.parse(localStorage.commentData); 
-	}
-
-		//{"name": " Faraz Shaikh ", "date":"11/30/2020", "body": "This is a test"}
-
-	for(var i=0;i<comment.length; i++){
-    	render(comment[i]); 
+		itemComments = JSON.parse(localStorage.getItem(item.Name + "Comments")); 
 	}
 
 	$('#addComment').click(function(){ 
@@ -26,14 +22,16 @@ $(document).ready(function(){
 			"body": $('#bodyText').val()
 		}; 
 		console.log(addObj); 
-		comment.push(addObj);
-		localStorage.commentData = JSON.stringify(comment);
-		render(addObj); 
+		itemComments.push(addObj)
+
+		localStorage.setItem(item.Name + "Comments", JSON.stringify(itemComments));
 
 		$('#name').val(''); 
 		$('#date').val('dd/mm/yyyy'); 
 		$('#bodyText').val(''); 
-		window.location.href = "eggplant.html"
+		console.log(itemComments);
+		console.log(item.Name)
+		window.history.back();
 	}); 
 }); 
 

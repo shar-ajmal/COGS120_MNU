@@ -41,11 +41,11 @@ var restaurantJSONArray = [
 ]
 
 var itemJSONArray = [
-    {'Name': 'Spicy Garlic Eggplant', 'Description': 'This dish is sweet eggplant covered in Szechuan Sauce', 'Content': ['Nuts'], 'Rating': 5},
-    {'Name': 'Carne Asada Fries', 'Description': 'Fries covered in Carne Asada, cheese, and guacamole.', 'Content': ['Meat', 'Dairy'], 'Rating': 4},
-    {'Name': 'Pizza', 'Description': 'Flavorful Pizza covered in cheese and our secret sauce.', 'Content': ['Dairy'], 'Rating': 3},
-    {'Name': 'Goat Biryani', 'Description': 'Spiced Indian Rice Dish with goat meat', 'Content': ['Meat'], 'Rating': 4},
-    {'Name': 'Orange Chicken', 'Description': 'Flavorlful and sweet chicken glazed in our orange sauce.', 'Content': ['Meat'], 'Rating': 5},
+    {'Name': 'Spicy Garlic Eggplant', 'Description': 'This dish is sweet eggplant covered in Szechuan Sauce', 'Content': ['Nuts'], 'Rating': 5, 'Comments': []},
+    {'Name': 'Carne Asada Fries', 'Description': 'Fries covered in Carne Asada, cheese, and guacamole.', 'Content': ['Meat', 'Dairy'], 'Rating': 4, 'Comments': []},
+    {'Name': 'Pizza', 'Description': 'Flavorful Pizza covered in cheese and our secret sauce.', 'Content': ['Dairy'], 'Rating': 3, 'Comments': []},
+    {'Name': 'Goat Biryani', 'Description': 'Spiced Indian Rice Dish with goat meat', 'Content': ['Meat'], 'Rating': 4, 'Comments': []},
+    {'Name': 'Orange Chicken', 'Description': 'Flavorlful and sweet chicken glazed in our orange sauce.', 'Content': ['Meat'], 'Rating': 5, 'Comments': []},
 ]
 
 var mainArray = restaurantJSONArray;
@@ -56,19 +56,11 @@ var placeHolderDropdown = document.getElementById('placeholder-dropdown');
 var searchFilter = document.getElementById('search-filter-button');
 var searchFilterRestaurant = document.getElementById('search-filter-restaurant')
 var searchFilterFood = document.getElementById('search-filter-food')
-var loginButton = document.getElementById('login-button');
 var searchHeaderMessage = document.getElementById('search-header-message');
 
 var login = JSON.parse(localStorage.getItem('login'))
 
 displayDropDown();
-
-if (login) {
-    loginButton.innerHTML = 'Sarah'
-}
-else {
-    loginButton.innerHTML = 'LOGIN'
-}
 
 searchBar.addEventListener('keyup', displayDropDown);
 
@@ -77,6 +69,7 @@ searchFilterFood.addEventListener('click', function() {toggleFilter('Food Items'
 
 localStorage.setItem('itemArray', JSON.stringify(itemJSONArray))
 localStorage.setItem('restaurantArray', JSON.stringify(restaurantJSONArray));
+
 
 function toggleFilter(newText, newArray, newSearchFilterValue) {
 
@@ -142,7 +135,12 @@ function createDropDownItem(jsonObject) {
         window.location.href = redirectLink;
         var arrayIndex = searchKey(jsonObject.Name, mainArray)
         console.log(arrayIndex);
-        localStorage.setItem('objectToPass', JSON.stringify(mainArray[arrayIndex]))
+        if (searchFilterValue === 'restaurants') {
+            localStorage.setItem('restaurantObject', JSON.stringify(mainArray[arrayIndex]))
+        }
+        else {
+            localStorage.setItem('itemObject', JSON.stringify(mainArray[arrayIndex]))
+        }
     })
     var dropdownInfoContainer = document.createElement('div')
     dropdownInfoContainer.classList.add('dropdown-info-container');

@@ -4,8 +4,8 @@ var restaurantAddress = document.getElementById('restaurant-address');
 var restaurantPrice = document.getElementById('restaurant-price');
 var viewMenuButton = document.getElementById('view-menu-button');
 
-console.log(JSON.parse(localStorage.getItem('objectToPass')));
-var restaurant = JSON.parse(localStorage.getItem('objectToPass'))
+console.log(JSON.parse(localStorage.getItem('restaurantObject')));
+var restaurant = JSON.parse(localStorage.getItem('restaurantObject'))
 
 viewMenuButton.addEventListener('click', goToMenu);
 

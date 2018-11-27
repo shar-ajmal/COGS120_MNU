@@ -1,6 +1,6 @@
 var menuItemList = document.getElementById('menu-item-list');
 
-var restaurantMenu = JSON.parse(localStorage.getItem('objectToPass')).Menu;
+var restaurantMenu = JSON.parse(localStorage.getItem('restaurantObject')).Menu;
 var itemArray = JSON.parse(localStorage.getItem('itemArray'))
 
 function searchKey(key, array) {
@@ -30,7 +30,7 @@ restaurantMenu.forEach(function(item) {
     containerDiv.className = 'list list-layout';
     entryName.innerHTML = item;
     entryName.setAttribute('href', 'menu_dish.html');
-    localStorage.setItem('objectToPass', JSON.stringify(menuItem));
+    localStorage.setItem('itemObject', JSON.stringify(menuItem));
 
     itemDescription.innerHTML = 'Description: ' + menuItem.Description;
     itemContent.innerHTML = 'Contains: ' + menuItem.Content;
