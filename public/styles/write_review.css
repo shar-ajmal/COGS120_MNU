@@ -39,26 +39,23 @@ margin-left: 1%;
  	padding: 10px; 
  	border: 1px solid #0000;
  	margin-bottom: 10px; 
- 	text-align: center;
+	 text-align: center;
+	 display: flex;
+	 flex-direction: column;
 }
-
-
 
 .form input[type="text"]{
 	border:1px solid #000;
 	padding: 2px; 
-	width: 400px;
 
 }
 .form input[type="date"]{
 	border:1px solid #000;
 	padding: 2px; 
-	width: 400px;
 } 
 .form textarea{
 	border:1px solid #000;
 	padding: 2px; 
-	width: 440px;
 
 }
 
@@ -81,6 +78,11 @@ margin-left: 1%;
 
 .search-container {
     margin-top: 20px
+}
+
+.add-comment-container {
+	padding: 30px;
+	background-color: #B00020;
 }
 
 

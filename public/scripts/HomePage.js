@@ -33,7 +33,7 @@ var itemsNearYou = [
 ]
 
 var restaurantJSONArray = [
-    {'Name': 'Spicy City', 'Address': 'Convoy St', 'Price': '$', 'Menu': ['Spicy Garlic Eggplant']},
+    {'Name': 'Spicy City', 'Address': 'Convoy St', 'Price': '$', 'Menu': ['Spicy Eggplant']},
     {'Name' : 'Vallartas', 'Address': 'Balboa Ave', 'Price': '$', 'Menu': ['Carne Asada Fries']},
     {'Name': 'Dominos', 'Address' : 'La Jolla Village Drive', 'Price': '$', 'Menu' : ['Pizza']},
     {'Name' : 'Biryani Palace', 'Address': 'Mira Mesa', 'Price': '$', 'Menu' : ['Goat Biryani']},
@@ -41,7 +41,7 @@ var restaurantJSONArray = [
 ]
 
 var itemJSONArray = [
-    {'Name': 'Spicy Garlic Eggplant', 'Description': 'This dish is sweet eggplant covered in Szechuan Sauce', 'Content': ['Nuts'], 'Rating': 5, 'Comments': []},
+    {'Name': 'Spicy Eggplant', 'Description': 'This dish is sweet eggplant covered in Szechuan Sauce', 'Content': ['Nuts'], 'Rating': 5, 'Comments': []},
     {'Name': 'Carne Asada Fries', 'Description': 'Fries covered in Carne Asada, cheese, and guacamole.', 'Content': ['Meat', 'Dairy'], 'Rating': 4, 'Comments': []},
     {'Name': 'Pizza', 'Description': 'Flavorful Pizza covered in cheese and our secret sauce.', 'Content': ['Dairy'], 'Rating': 3, 'Comments': []},
     {'Name': 'Goat Biryani', 'Description': 'Spiced Indian Rice Dish with goat meat', 'Content': ['Meat'], 'Rating': 4, 'Comments': []},

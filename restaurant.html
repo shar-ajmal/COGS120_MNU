@@ -2,29 +2,15 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="public/styles/layout.css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-        <link href="public/styles/layout.css" rel="stylesheet"/>
-         <style>
-        .carousel-inner > .item > img,
-        .carousel-inner > .item > a > img {
-         width: 50%;
-         margin: auto;
-  } 
-  </style>
     </head>
     <body>
         <div class="container-fullwidth header-container">
             <nav class="navbar app-header text-center">
-                <span class="navbar-brand mb-0 h1 app-title">
-                    <button class="button home">
-                <form action="index.html">
-                  <input type="submit" value="MNU">
-                </form>
-              </button>
-                </span>
+                <span class="navbar-brand mb-0 h1 app-title">MNU</span>
             </nav>
         </div>
         
@@ -71,7 +57,7 @@
                         </a>
                     </div>
                 </div> -->
-                <div class="col-5">
+                <div class="col-sm-12 col-5">
                     <div class="row">
                         <div class="restaurant-info">
                             <p id='restaurant-name'>Restaurant Name:</p>
@@ -81,9 +67,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button class="button first-button" id="view-menu-button"> 
-                            View Menu
-                        </button>
+                        <div class="col-sm-12 center-text">
+                            <button class="button first-button view-menu-button" id="view-menu-button"> 
+                                View Menu
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

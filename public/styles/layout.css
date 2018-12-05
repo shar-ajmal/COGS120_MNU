@@ -115,6 +115,7 @@
     height: 300px;
     width: 100%;
     border: 1px solid black;
+    padding: 20px;
 }
 
 .popular-dishes {
@@ -245,6 +246,16 @@ margin-left: 1%;
     background-color: #3e8e41;
 }
 
+.view-menu-button {
+    margin-top: 50px;
+    font-size: 20px;
+    background-color: #B00020;
+    padding: 20px;
+}
+
+.center-text {
+    text-align: center;
+}
 
 
 

@@ -4,39 +4,38 @@
   <title> Comment System </title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href= 'public/styles/write_review.css' rel="stylesheet" type="text/css" >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 
-<div class="container-fullwidth header-container">
-            <nav class="navbar app-header text-center">
-                <span class="navbar-brand mb-0 h1 app-title">
-              <button class="button home">
-                <form action="index.html">
-                  <input type="submit" value="MNU">
-                </form>
-              </button> 
-              </span>
-            </nav>
-</div>
+    <div class="container-fullwidth header-container">
+        <nav class="navbar app-header text-center">
+            <span class="navbar-brand mb-0 h1 app-title">MNU</span>
+        </nav>
+    </div>
+
   <button class="button first-button" id="back-button"> 
           Back
         </button>
 
-
-
-
-
-<div class= 'form'>
-  <h5> Add Comment</h5>
-  Name: <input type="text" id="name" /> <br /> <br />
-  Date: <input type="date" id="date" /> <br /> <br/> 
-  Comment: <textarea row= "10" col="10" id="bodyText"> </textarea><br /> <br /> 
-
-
-  <input type="button" id= "addComment" value="Add Comment"/>
+<div class="container"> 
+  <div class="row">
+    <div class="col-sm-12">
+      <div class= 'form'>
+        <h5> Add Comment</h5>
+        Name: <input type="text" id="name" /> <br /> <br />
+        Date: <input type="date" id="date" /> <br /> <br/> 
+        Comment: <textarea row= "10" col="10" id="bodyText"> </textarea><br /> <br /> 
+      
+      
+        <div class="add-comment-container">
+            <input type="button" id= "addComment" value="Add Comment"/>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div id= 'container'> </div>
 
 
 
