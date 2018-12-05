@@ -31,7 +31,7 @@ $(document).ready(function(){
 		$('#bodyText').val(''); 
 		console.log(itemComments);
 		console.log(item.Name)
-		window.history.back();
+		window.location=document.referrer;
 	}); 
 }); 
 
