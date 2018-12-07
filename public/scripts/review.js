@@ -16,6 +16,8 @@ $(document).ready(function(){
 	}
 
 	$('#addComment').click(function(){ 
+		localStorage.setItem('toastTimer', JSON.stringify(true));
+
 		var addObj = { 
 			"name": $('#name').val(), 
 			"date": $('#date').val(), 
@@ -31,7 +33,7 @@ $(document).ready(function(){
 		$('#bodyText').val(''); 
 		console.log(itemComments);
 		console.log(item.Name)
-		window.location=document.referrer;
+		window.history.back();
 	}); 
 }); 
 

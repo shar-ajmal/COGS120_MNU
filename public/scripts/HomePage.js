@@ -41,11 +41,11 @@ var restaurantJSONArray = [
 ]
 
 var itemJSONArray = [
-    {'Name': 'Spicy Eggplant', 'Description': 'This dish is sweet eggplant covered in Szechuan Sauce', 'Content': ['Nuts'], 'Rating': 5, 'Comments': []},
-    {'Name': 'Carne Asada Fries', 'Description': 'Fries covered in Carne Asada, cheese, and guacamole.', 'Content': ['Meat', 'Dairy'], 'Rating': 4, 'Comments': []},
-    {'Name': 'Pizza', 'Description': 'Flavorful Pizza covered in cheese and our secret sauce.', 'Content': ['Dairy'], 'Rating': 3, 'Comments': []},
-    {'Name': 'Goat Biryani', 'Description': 'Spiced Indian Rice Dish with goat meat', 'Content': ['Meat'], 'Rating': 4, 'Comments': []},
-    {'Name': 'Orange Chicken', 'Description': 'Flavorlful and sweet chicken glazed in our orange sauce.', 'Content': ['Meat'], 'Rating': 5, 'Comments': []},
+    {'Name': 'Spicy Eggplant', 'Description': 'This dish is sweet eggplant covered in Szechuan Sauce', 'Content': ['Nuts'], 'Rating': 5, 'Comments': [], 'image':'spicy_eggplant.jpeg'},
+    {'Name': 'Carne Asada Fries', 'Description': 'Fries covered in Carne Asada, cheese, and guacamole.', 'Content': ['Meat', 'Dairy'], 'Rating': 4, 'Comments': [], 'image': 'carne_asada.jpeg'},
+    {'Name': 'Pizza', 'Description': 'Flavorful Pizza covered in cheese and our secret sauce.', 'Content': ['Dairy'], 'Rating': 3, 'Comments': [], 'image':'pizza.jpeg'},
+    {'Name': 'Goat Biryani', 'Description': 'Spiced Indian Rice Dish with goat meat', 'Content': ['Meat'], 'Rating': 4, 'Comments': [], 'image':'goat_biryani.jpeg'},
+    {'Name': 'Orange Chicken', 'Description': 'Flavorlful and sweet chicken glazed in our orange sauce.', 'Content': ['Meat'], 'Rating': 5, 'Comments': [], 'image':'spicy_eggplant.jpeg'},
 ]
 
 var mainArray = restaurantJSONArray;
@@ -64,8 +64,8 @@ displayDropDown();
 
 searchBar.addEventListener('keyup', displayDropDown);
 
-searchFilterRestaurant.addEventListener('click', function() {toggleFilter('Restaurants', restaurantJSONArray, 'restaurants')})
-searchFilterFood.addEventListener('click', function() {toggleFilter('Food Items', itemJSONArray, 'food')})
+searchFilterRestaurant.addEventListener('click', function() {toggleFilter('Search for Restaurants', restaurantJSONArray, 'restaurants')})
+searchFilterFood.addEventListener('click', function() {toggleFilter('Search for Food Items', itemJSONArray, 'food')})
 
 localStorage.setItem('itemArray', JSON.stringify(itemJSONArray))
 localStorage.setItem('restaurantArray', JSON.stringify(restaurantJSONArray));
@@ -145,14 +145,14 @@ function createDropDownItem(jsonObject) {
     var dropdownInfoContainer = document.createElement('div')
     dropdownInfoContainer.classList.add('dropdown-info-container');
 
-    var dropdownPic = document.createElement('div');
-    dropdownPic.classList.add('dropdown-pic');
+    //var dropdownPic = document.createElement('div');
+    //dropdownPic.classList.add('dropdown-pic');
 
-    var dropdownName = document.createElement('div')
+    var dropdownName = document.createElement('h5')
     dropdownName.classList.add('dropdown-name');
     dropdownName.innerText = jsonObject.Name;
     
-    dropdownInfoContainer.appendChild(dropdownPic);
+    //dropdownInfoContainer.appendChild(dropdownPic);
     dropdownInfoContainer.appendChild(dropdownName);
     dropdownItemContainer.appendChild(dropdownInfoContainer);
 

@@ -164,6 +164,7 @@
 .dropdown-name {
     width: 50%;
     border: 1px solid black;
+    text-align: center;
 }
 .review{
   justify-content: center;
@@ -257,13 +258,13 @@ margin-left: 1%;
     text-align: center;
 }
 
+.toast-notification--confirm {
+    height: 50px;
+    background: greenyellow;
+    visibility: hidden;
+}
 
-
-
-
-
-
-
-
-
-
+.food-pic {
+    max-width: 100%;
+    max-height: 100%;
+}
